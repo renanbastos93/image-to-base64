@@ -1,0 +1,34 @@
+{
+  "name": "image-to-base64",
+  "version": "1.0.0",
+  "description": "Generate a image to base64.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha ./test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/renanbastos93/image-to-base64.git"
+  },
+  "keywords": [
+    "image",
+    "to",
+    "base64",
+    "image",
+    "base64",
+    "convert",
+    "image",
+    "save",
+    "code"
+  ],
+  "author": "Renan Bastos - <renanbastos.tec@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/renanbastos93/image-to-base64/issues"
+  },
+  "homepage": "https://github.com/renanbastos93/image-to-base64#readme",
+  "dependencies": {
+    "mocha": "^4.0.1",
+    "node-fetch": "^1.7.3"
+  }
+}
