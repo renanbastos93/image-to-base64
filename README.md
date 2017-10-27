@@ -26,5 +26,5 @@ image2base64("path/to/file.jpg")
 ```
 Is good remember that you can set one url of the image as parameter.
 
-### LICENTE
- MIT
+### LICENSE
+ [MIT](https://opensource.org/licenses/MIT)
