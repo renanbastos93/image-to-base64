@@ -1,6 +1,6 @@
 {
   "name": "image-to-base64",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Generate a image to base64.",
   "main": "index.js",
   "scripts": {
@@ -11,15 +11,22 @@
     "url": "git+https://github.com/renanbastos93/image-to-base64.git"
   },
   "keywords": [
-    "image",
-    "to",
-    "base64",
-    "image",
-    "base64",
+    "node",
+    "nodejs",
+    "module convert base64 nodejs",
+    "image2base64",
+    "image-to-base64",
+    "convert-image-base64",
     "convert",
-    "image",
     "save",
-    "code"
+    "code",
+    "base64", 
+    "image", 
+    "webpack", 
+    "loader", 
+    "img", 
+    "src", 
+    "img src"
   ],
   "author": "Renan Bastos - <renanbastos.tec@gmail.com>",
   "license": "MIT",
