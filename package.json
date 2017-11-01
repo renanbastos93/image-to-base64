@@ -1,6 +1,6 @@
 {
   "name": "image-to-base64",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Generate a image to base64.",
   "main": "index.js",
   "scripts": {
@@ -20,12 +20,12 @@
     "convert",
     "save",
     "code",
-    "base64", 
-    "image", 
-    "webpack", 
-    "loader", 
-    "img", 
-    "src", 
+    "base64",
+    "image",
+    "webpack",
+    "loader",
+    "img",
+    "src",
     "img src"
   ],
   "author": "Renan Bastos - <renanbastos.tec@gmail.com>",
