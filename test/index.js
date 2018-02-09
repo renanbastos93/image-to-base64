@@ -11,18 +11,20 @@ describe("must to be resolved the promise", function(){
         image2base64(url)
         .then(
             (data) => {
-                assert(/^([A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{4}|[A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{0,2}==)$/.test(data), true)
+                assert(/^([A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{4}|[A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{0,2}==)$/.test(data), true);
             }
         )
+        .catch((err)=>assert(err, true));
     });
     
     it('get image of the path and convert to base64', function(){
         image2base64(path)
         .then(
             (data) => {
-                assert(/^([A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{4}|[A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{0,2}==)$/.test(data), true)
+                assert(/^([A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{4}|[A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{0,2}==)$/.test(data), true);
             }
         )
+        .catch((err)=>assert(err, true));
     })
     
 });
