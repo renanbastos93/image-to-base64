@@ -35,7 +35,9 @@
   },
   "homepage": "https://github.com/renanbastos93/image-to-base64#readme",
   "dependencies": {
-    "mocha": "^4.0.1",
     "node-fetch": "^1.7.3"
+  },
+  "devDependencies": {
+    "mocha": "^4.1.0"
   }
 }
