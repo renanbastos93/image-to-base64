@@ -2,21 +2,39 @@
 const imageToBase64 = (url, param) => {
     return new Promise(
         (resolve, reject) => {
-            fetch(
-                url,
-                param || {}
-            ).then(
-                (response) => {
-                    return response.buffer();
-                }
-            )
-            .then(
-                (body) => {
-                    resolve(
-                        body.toString('base64')
-                    );
-                }
-            );
+
+            let valid = /(http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/gi.test(url);
+            
+            if(valid == true){
+
+                fetch(
+                    url,
+                    param || {}
+                ).then(
+                    (response) => response.arrayBuffer()
+                )
+                .then(
+                    (buffer) => {
+                        return 'data:image/jpeg;base64,' + window.btoa(
+                            [].slice.call(
+                                new Uint8Array(buffer)
+                            ).map(
+                                (bin) => String.fromCharCode(bin)
+                            ).join('')
+                        );
+                    }
+                )
+                .then(
+                    (body) => {
+                        resolve(body);
+                    }
+                ).catch(reject);
+
+            }else{
+
+                reject(null);
+
+            }
         }
     );
 };
