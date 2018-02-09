@@ -39,7 +39,22 @@ Is good remember that you can set one url of the image as parameter.
 ```html
 <script src="node_modules/image-to-base64/image-to-base64.js"></script>
 ```
-After you can to use conforme the exampe above of the Node.JS
+After you can to use conforme the example above of the Node.JS, but you must use URL.
+
+##### Example web
+```js
+image2base64("https://whatever-image/")
+    .then(
+        (response) => {
+            console.log(response); //data:image/jpeg;base64,iVBORw0KGgoAAAANSwCAIA...
+        }
+    )
+    .catch(
+        (error) => {
+            console.log(error); //Exepection error....
+        }
+    )
+```
 
 ### LICENSE
  [MIT](https://opensource.org/licenses/MIT)
