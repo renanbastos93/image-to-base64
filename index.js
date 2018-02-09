@@ -4,16 +4,16 @@ const fs = require('fs');
 const path = require('path');
 const fetch = require('node-fetch');
 
-const imageToBase64 = param => {
+const imageToBase64 = (param) => {
 
     return new Promise(
         (resolve, reject) => {
             
-            let valid = param.match(/(http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/gi);
+            let valid = /(http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/gi.test(param);
             
             if(!valid){
                 
-                if(param.match(/(\.(jpg)|\.(png)|\.(jpeg))/gi)){
+                if(/(\.(jpg)|\.(png)|\.(jpeg))/gi.test(param)){
                     
                     if(fs.statSync(param).isFile()){
                         resolve(
