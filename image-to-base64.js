@@ -1,5 +1,5 @@
 "use strict";
-const imageToBase64 = (url, param) => {
+const image2base64 = (url, param) => {
     return new Promise(
         (resolve, reject) => {
 

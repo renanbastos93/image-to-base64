@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const fetch = require('node-fetch');
 
-const imageToBase64 = (param) => {
+const image2base64 = (param) => {
 
     return new Promise(
         (resolve, reject) => {
@@ -52,4 +52,4 @@ const imageToBase64 = (param) => {
     
 };
 
-module.exports = exports = imageToBase64;
+module.exports = exports = image2base64;
