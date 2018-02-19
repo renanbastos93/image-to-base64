@@ -4,6 +4,7 @@
 [![NPM Version][npm-image]][npm-url]
 [![NPM Downloads][downloads-image]][downloads-url]
 [![Build Status](https://travis-ci.org/renanbastos93/image-to-base64.svg?branch=master)](https://travis-ci.org/renanbastos93/image-to-base64)
+[![devDependencies Status](https://david-dm.org/renanbastos93/image-to-base64/dev-status.svg)](https://david-dm.org/renanbastos93/image-to-base64?type=dev)
 
 [npm-image]: https://img.shields.io/npm/v/image-to-base64.svg
 [npm-url]: https://npmjs.org/package/image-to-base64
