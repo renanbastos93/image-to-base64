@@ -6,6 +6,7 @@
 [![Build Status](https://travis-ci.org/renanbastos93/image-to-base64.svg?branch=master)](https://travis-ci.org/renanbastos93/image-to-base64)
 [![devDependencies Status](https://david-dm.org/renanbastos93/image-to-base64/dev-status.svg)](https://david-dm.org/renanbastos93/image-to-base64?type=dev)
 <a href="https://www.npmjs.com/package/vue"><img src="https://img.shields.io/npm/l/vue.svg" alt="License"></a>
+[![codecov](https://codecov.io/gh/renanbastos93/image-to-base64/branch/master/graph/badge.svg)](https://codecov.io/gh/renanbastos93/image-to-base64)
 
 [npm-image]: https://img.shields.io/npm/v/image-to-base64.svg
 [npm-url]: https://npmjs.org/package/image-to-base64
