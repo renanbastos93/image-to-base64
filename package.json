@@ -38,6 +38,6 @@
     "node-fetch": "^1.7.3"
   },
   "devDependencies": {
-    "mocha": "^4.1.0"
+    "mocha": "^5.0.1"
   }
 }
