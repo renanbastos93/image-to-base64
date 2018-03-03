@@ -5,11 +5,13 @@
 [![NPM Downloads][downloads-image]][downloads-url]
 [![Build Status](https://travis-ci.org/renanbastos93/image-to-base64.svg?branch=master)](https://travis-ci.org/renanbastos93/image-to-base64)
 [![devDependencies Status](https://david-dm.org/renanbastos93/image-to-base64/dev-status.svg)](https://david-dm.org/renanbastos93/image-to-base64?type=dev)
+<a href="https://www.npmjs.com/package/vue"><img src="https://img.shields.io/npm/l/vue.svg" alt="License"></a>
 
 [npm-image]: https://img.shields.io/npm/v/image-to-base64.svg
 [npm-url]: https://npmjs.org/package/image-to-base64
 [downloads-image]: https://img.shields.io/npm/dm/image-to-base64.svg
 [downloads-url]: https://npmjs.org/package/image-to-base64
+
 
 ## About
  It was think for supplement any situation, as for example save one string in database, too send the string to front-end increment one tag `<img />`
