@@ -15,12 +15,8 @@ const image2base64 = (param) => {
                 let validTypeImage = new RegExp("(\.(jpg)|\.(png)|\.(jpeg))", "gi");
                 if(validTypeImage.test(param)){
                     
-                    if(fs.statSync(param).isFile()){
-                        resolve(
-                            fs.readFileSync(
-                                path.resolve(param)
-                            ).toString("base64")
-                        );
+                    if(fs.statSync(param).isFile() === true){
+                        resolve(fs.readFileSync(path.resolve(param)).toString("base64"));
                     }else{
                         reject(null);
                     }
@@ -40,9 +36,7 @@ const image2base64 = (param) => {
                 )
                 .then(
                     (body) => {
-                        resolve(
-                            body.toString("base64")
-                        );
+                        resolve(body.toString("base64"));
                     }
                 );
 

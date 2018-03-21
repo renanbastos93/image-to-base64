@@ -15,7 +15,7 @@ describe("must to be resolved the promise", function(){
                 assert(validBase64.test(data), true);
             }
         )
-        .catch((err)=>assert(err, true));
+        .catch((err) => assert(err, true));
     });
     
     it("get image of the path and convert to base64", function(){
@@ -25,7 +25,7 @@ describe("must to be resolved the promise", function(){
                 assert(validBase64.test(data).test(data), true);
             }
         )
-        .catch((err)=>assert(err, true));
+        .catch((err) => assert(err, true));
     });
     
 });

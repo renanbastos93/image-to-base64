@@ -16,7 +16,7 @@ const image2base64 = (url, param) => {
                 )
                 .then(
                     (buffer) => {
-                        return "data:image/jpeg;base64," + window.btoa(
+                        return window.btoa(
                             [].slice.call(
                                 new Uint8Array(buffer)
                             ).map(
