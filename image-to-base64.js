@@ -1,11 +1,12 @@
 "use strict";
+
 const image2base64 = (url, param) => {
     return new Promise(
         (resolve, reject) => {
 
-            let valid = /(http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/gi.test(url);
-            
-            if(valid == true){
+            let valid = new RegExp("(http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?", "gi");
+
+            if(valid.test(param) === true){
 
                 fetch(
                     url,
@@ -15,12 +16,12 @@ const image2base64 = (url, param) => {
                 )
                 .then(
                     (buffer) => {
-                        return 'data:image/jpeg;base64,' + window.btoa(
+                        return "data:image/jpeg;base64," + window.btoa(
                             [].slice.call(
                                 new Uint8Array(buffer)
                             ).map(
                                 (bin) => String.fromCharCode(bin)
-                            ).join('')
+                            ).join("")
                         );
                     }
                 )
