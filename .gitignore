@@ -57,3 +57,9 @@ typings/
 # dotenv environment variables file
 .env
 
+# package-lock.json from NPM
+package-lock.json
+
+# macOS file
+.DS_Store
+*/**/.DS_Store
