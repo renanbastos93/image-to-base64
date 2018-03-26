@@ -11,7 +11,7 @@ const image2base64 = (param) => {
             
             let valid = new RegExp("(http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?", "gi");
 
-            if(valid !== true){
+            if(valid.test(param) === true){
                 let validTypeImage = new RegExp("(\.(jpg)|\.(png)|\.(jpeg))", "gi");
                 if(validTypeImage.test(param)){
                     
