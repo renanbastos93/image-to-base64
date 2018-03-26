@@ -2,7 +2,7 @@ const image2base64 = require("./../");
 const assert = require("assert");
 const pt = require("path");
 
-let url = "http://jaystack.com/wp-content/uploads/2015/12/nodejs-logo-e1497443346889.png";
+let url = "https://jaystack.com/wp-content/uploads/2015/12/nodejs-logo-e1497443346889.png";
 let path = pt.resolve("test/nodejs.png");
 let validBase64 = new RegExp("^([A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{4}|[A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{0,2}==)$","gim");
 
