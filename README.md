@@ -25,7 +25,7 @@ npm i -S image-to-base64
 After:
 ```js
 const image2base64 = require('image-to-base64');
-image2base64("path/to/file.jpg")
+image2base64("path/to/file.jpg") // you can also to use url
     .then(
         (response) => {
             console.log(response); //cGF0aC90by9maWxlLmpwZw==
@@ -51,7 +51,7 @@ After you can to use conforme the example above of the Node.JS, but you must use
 image2base64("https://whatever-image/")
     .then(
         (response) => {
-            console.log(response); //data:image/jpeg;base64,iVBORw0KGgoAAAANSwCAIA...
+            console.log(response); //iVBORw0KGgoAAAANSwCAIA...
         }
     )
     .catch(
