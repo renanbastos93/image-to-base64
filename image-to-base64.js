@@ -10,7 +10,7 @@
     }
     
     function base64ToBrowser (buffer) {
-        return window.btoa([].slice.call(new Uint8Array(buffer)).map((bin) => String.fromCharCode(bin)).join(""));
+        return window.btoa([].slice.call(new Uint8Array(buffer)).map(function(bin) { return String.fromCharCode(bin) }).join(""));
     }
     
     function base64ToNode (buffer) {
@@ -18,8 +18,8 @@
     }
     
     function readFileAndConvert (fileName) {
-        const fileSystem = require("fs");
-        const path = require("path");
+        var fileSystem = require("fs");
+        var path = require("path");
         
         if (fileSystem.statSync(fileName).isFile()) {
             return base64ToNode(fileSystem.readFileSync(path.resolve(fileName)).toString("base64"));
@@ -39,13 +39,17 @@
         if (!("fetch" in window && "Promise" in window)) {
             return Promise.reject("[*] It's image2base64 not compatible with your browser.");
         }
-        return fetch(urlOrImage, param || {}).then((response) => response.arrayBuffer()).then(base64ToBrowser);
+        return fetch(urlOrImage, param || {}).then(function(response){
+            return response.arrayBuffer()
+        }).then(base64ToBrowser);
     }
     
     function isNodeJs (urlOrImage) {
         if (validUrl(urlOrImage)) {
-            const fetch = require("node-fetch");
-            return fetch(urlOrImage).then((response) => response.arrayBuffer()).then(base64ToNode);
+            var fetch = require("node-fetch");
+            return fetch(urlOrImage).then(function(response){
+                return response.arrayBuffer()
+            }).then(base64ToNode);
         } else {
             return isImage(urlOrImage);
         }
@@ -64,5 +68,5 @@
     } else {
         escope.imageToBase64 = imageToBase64;
     }
-        
+
 })(this);
