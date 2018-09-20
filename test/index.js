@@ -1,4 +1,4 @@
-const image2base64 = require("./../");
+const image2base64 = require("./../image-to-base64.js");
 const assert = require("assert");
 const pt = require("path");
 
