@@ -1,11 +1,15 @@
-'use strict';
+"use strict";
+
+if (typeof module !== 'undefined') {
+    module.exports = image2base64;
+}
 
 function validUrl (url) {
-    return new RegExp("(http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?", "gi").test(url);
+    return /(http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/gi.test(url);
 }
 
 function validTypeImage (image) {
-    return new RegExp("(\.(jpg)|\.(png)|\.(jpeg))", "gi").test(image);
+    return /(\.(jpg)|\.(png)|\.(jpeg))/gi.test(image);
 }
 
 function base64ToBrowser (buffer) {
@@ -17,6 +21,9 @@ function base64ToNode (buffer) {
 }
 
 function readFileAndConvert (param) {
+    const fs = require("fs");
+    const path = require("path");
+    
     if (fs.statSync(param).isFile()) {
         return base64ToNode(fs.readFileSync(path.resolve(param)).toString("base64"));
     }
@@ -24,28 +31,22 @@ function readFileAndConvert (param) {
 }
 
 function image2base64(urlOrImage, param) {
-    if(validUrl(urlOrImage)) {
-        if (typeof window !== 'undefined' && ('document' in window && 'navigator' in window)) {
-            if (!('fetch' in window && 'Promise' in window)) {
-                console.log('[*] It\'s image2base64 not compatible with your browser.');
-                return Promise.reject('[*] It\'s image2base64 not compatible with your browser.');
-            }
-            return fetch(urlOrImage, param || {}).then((response) => response.arrayBuffer()).then(base64ToBrowser);
-        } else {
-            return fetch(urlOrImage, param || {}).then((response) => response.arrayBuffer()).then(base64ToNode)
+    if (typeof window !== 'undefined' && ('document' in window && 'navigator' in window)) {
+        if (!('fetch' in window && 'Promise' in window)) {
+            console.log('[*] It\'s image2base64 not compatible with your browser.');
+            return Promise.reject('[*] It\'s image2base64 not compatible with your browser.');
         }
+        return fetch(urlOrImage, param || {}).then((response) => response.arrayBuffer()).then(base64ToBrowser);
     } else {
-        if (validTypeImage(urlOrImage)) {
-            return Promise.resolve(readFileAndConvert(urlOrImage()));
+        if (validUrl(urlOrImage)) {
+            const fetch = require("node-fetch");
+            return fetch(urlOrImage).then((response) => response.arrayBuffer()).then(base64ToNode);
         } else {
-            return Promise.reject('[*] Occurent some error... [validTypeImage] == false');
+            if (validTypeImage(urlOrImage)) {
+                return Promise.resolve(readFileAndConvert(urlOrImage));
+            } else {
+                return Promise.reject('[*] Occurent some error... [validTypeImage] == false');
+            }
         }
     }
-}
-
-if (typeof module !== 'undefined') {
-    const fs = require("fs");
-    const path = require("path");
-    const fetch = require("node-fetch");
-    module.exports = image2base64;
 }
