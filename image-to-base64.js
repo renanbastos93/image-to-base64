@@ -1,9 +1,5 @@
 "use strict";
 
-if (typeof module !== 'undefined') {
-    module.exports = image2base64;
-}
-
 function validUrl (url) {
     return /(http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/gi.test(url);
 }
@@ -30,23 +26,39 @@ function readFileAndConvert (param) {
     return null;
 }
 
-function image2base64(urlOrImage, param) {
-    if (typeof window !== 'undefined' && ('document' in window && 'navigator' in window)) {
-        if (!('fetch' in window && 'Promise' in window)) {
-            console.log('[*] It\'s image2base64 not compatible with your browser.');
-            return Promise.reject('[*] It\'s image2base64 not compatible with your browser.');
-        }
-        return fetch(urlOrImage, param || {}).then((response) => response.arrayBuffer()).then(base64ToBrowser);
+function isImage (urlOrImage) {
+    if (validTypeImage(urlOrImage)) {
+        return Promise.resolve(readFileAndConvert(urlOrImage));
     } else {
-        if (validUrl(urlOrImage)) {
-            const fetch = require("node-fetch");
-            return fetch(urlOrImage).then((response) => response.arrayBuffer()).then(base64ToNode);
-        } else {
-            if (validTypeImage(urlOrImage)) {
-                return Promise.resolve(readFileAndConvert(urlOrImage));
-            } else {
-                return Promise.reject('[*] Occurent some error... [validTypeImage] == false');
-            }
-        }
+        return Promise.reject("[*] Occurent some error... [validTypeImage] == false");
     }
+}
+
+function isBrowser (urlOrImage, param) {
+    if (!("fetch" in window && "Promise" in window)) {
+        console.log("[*] It's image2base64 not compatible with your browser.");
+        return Promise.reject("[*] It's image2base64 not compatible with your browser.");
+    }
+    return fetch(urlOrImage, param || {}).then((response) => response.arrayBuffer()).then(base64ToBrowser);
+}
+
+function isNodeJs (urlOrImage) {
+    if (validUrl(urlOrImage)) {
+        const fetch = require("node-fetch");
+        return fetch(urlOrImage).then((response) => response.arrayBuffer()).then(base64ToNode);
+    } else {
+        return isImage(urlOrImage);
+    }
+}
+
+function imageToBase64(urlOrImage, param) {
+    if (typeof window !== "undefined" && ("document" in window && "navigator" in window)) {
+        return isBrowser(urlOrImage, param);
+    } else {
+        return isNodeJs(urlOrImage);
+    }
+}
+
+if (typeof module !== "undefined") {
+    module.exports = imageToBase64;
 }
