@@ -16,12 +16,12 @@ function base64ToNode (buffer) {
     return buffer.toString("base64");
 }
 
-function readFileAndConvert (param) {
-    const fs = require("fs");
+function readFileAndConvert (fileName) {
+    const fileSystem = require("fs");
     const path = require("path");
     
-    if (fs.statSync(param).isFile()) {
-        return base64ToNode(fs.readFileSync(path.resolve(param)).toString("base64"));
+    if (fileSystem.statSync(fileName).isFile()) {
+        return base64ToNode(fileSystem.readFileSync(path.resolve(fileName)).toString("base64"));
     }
     return null;
 }
@@ -36,7 +36,6 @@ function isImage (urlOrImage) {
 
 function isBrowser (urlOrImage, param) {
     if (!("fetch" in window && "Promise" in window)) {
-        console.log("[*] It's image2base64 not compatible with your browser.");
         return Promise.reject("[*] It's image2base64 not compatible with your browser.");
     }
     return fetch(urlOrImage, param || {}).then((response) => response.arrayBuffer()).then(base64ToBrowser);
