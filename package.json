@@ -1,8 +1,8 @@
 {
   "name": "image-to-base64",
-  "version": "1.3.5",
+  "version": "2.0.0",
   "description": "Generate a image to base64.",
-  "main": "index.js",
+  "main": "image-to-base64.js",
   "scripts": {
     "test": "mocha ./test"
   },
