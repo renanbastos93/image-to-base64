@@ -42,7 +42,7 @@ Is good remember that you can set one url of the image as parameter.
 #### For to use on browser
  You can make import with a tag `script` for you to use. So see the example:
 ```html
-<script src="node_modules/image-to-base64/image-to-base64.js"></script>
+<script src="node_modules/image-to-base64/image-to-base64.min.js"></script>
 ```
 After you can to use conforme the example above of the Node.JS, but you must use URL.
 
