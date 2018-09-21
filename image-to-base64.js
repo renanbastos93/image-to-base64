@@ -48,7 +48,7 @@
         if (validUrl(urlOrImage)) {
             var fetch = require("node-fetch");
             return fetch(urlOrImage).then(function(response){
-                return response.arrayBuffer()
+                return response.buffer()
             }).then(base64ToNode);
         } else {
             return isImage(urlOrImage);
