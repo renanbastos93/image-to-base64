@@ -24,8 +24,8 @@ npm i -S image-to-base64
 ```
 After:
 ```js
-const imageTobase64 = require('image-to-base64');
-imageTobase64("path/to/file.jpg") // you can also to use url
+const imageToBase64 = require('image-to-base64');
+imageToBase64("path/to/file.jpg") // you can also to use url
     .then(
         (response) => {
             console.log(response); //cGF0aC90by9maWxlLmpwZw==
