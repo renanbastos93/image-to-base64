@@ -59,6 +59,7 @@ typings/
 
 # package-lock.json from NPM
 package-lock.json
+yarn.lock
 
 # macOS file
 .DS_Store
