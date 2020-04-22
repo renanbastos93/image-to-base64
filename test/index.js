@@ -7,9 +7,9 @@ let path = pt.resolve("test/nodejs.png");
 let validBase64 = new RegExp("^([A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{4}|[A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{0,2}==)$","gim");
 
 describe("must to be resolved the promise", function(){
-    
+
     it("get image of the url and convert to base64", function(){
-        image2base64(url)
+        image2base64.server(url)
         .then(
             (data) => {
                 assert(validBase64.test(data), true);
@@ -17,9 +17,9 @@ describe("must to be resolved the promise", function(){
         )
         .catch((err) => assert(err, true));
     });
-    
+
     it("get image of the path and convert to base64", function(){
-        image2base64(path)
+        image2base64.server(path)
         .then(
             (data) => {
                 assert(validBase64.test(data).test(data), true);
@@ -27,5 +27,5 @@ describe("must to be resolved the promise", function(){
         )
         .catch((err) => assert(err, true));
     });
-    
+
 });

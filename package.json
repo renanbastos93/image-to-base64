@@ -5,8 +5,9 @@
   "main": "image-to-base64.min.js",
   "scripts": {
     "minify:base": "uglifyjs image-to-base64.js -c -m -o image-to-base64.min.js",
-    "minify:web": "uglifyjs browser.js -c -m -o browser.min.js",
-    "minify": "npm run minify:base && npm run minify:web",
+    "minify:browser": "uglifyjs browser.js -c -m -o browser.min.js",
+    "minify:server": "uglifyjs server.js -c -m -o server.min.js",
+    "minify": "npm run minify:base && npm run minify:browser && npm run minify:server",
     "test": "mocha ./test"
   },
   "repository": {
