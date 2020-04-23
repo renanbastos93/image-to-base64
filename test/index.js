@@ -9,7 +9,7 @@ let validBase64 = new RegExp("^([A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{4}|[A-Za-z0-9+/
 describe("must to be resolved the promise", function(){
 
     it("get image of the url and convert to base64", function(){
-        image2base64.server(url)
+        image2base64(url)
         .then(
             (data) => {
                 assert(validBase64.test(data), true);
@@ -19,7 +19,7 @@ describe("must to be resolved the promise", function(){
     });
 
     it("get image of the path and convert to base64", function(){
-        image2base64.server(path)
+        image2base64(path)
         .then(
             (data) => {
                 assert(validBase64.test(data).test(data), true);
