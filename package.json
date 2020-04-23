@@ -42,7 +42,7 @@
     "node-fetch": "^1.7.3"
   },
   "devDependencies": {
-    "mocha": "^6.0.0",
     "uglify-js": "^3.9.1"
+    "mocha": "^7.1.1"
   }
 }
