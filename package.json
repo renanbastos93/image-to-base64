@@ -1,6 +1,6 @@
 {
     "name": "image-to-base64",
-    "version": "2.0.1",
+    "version": "2.1.0",
     "description": "Generate a image to base64.",
     "main": "image-to-base64.min.js",
     "scripts": {
