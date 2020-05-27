@@ -6,7 +6,7 @@
 
     function imageToBase64Browser(urlOrImage, param) {
         if (!('fetch' in window && 'Promise' in window)) {
-            return Promise.reject('[*] It\'s image2base64 not compatible with your browser.');
+            return Promise.reject('[*] image-to-base64 is not compatible with your browser.');
         }
         return fetch(urlOrImage, param || {}).then(function(response) {
             return response.arrayBuffer();
