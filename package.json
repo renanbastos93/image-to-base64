@@ -38,7 +38,7 @@
     },
     "homepage": "https://github.com/renanbastos93/image-to-base64#readme",
     "dependencies": {
-        "node-fetch": "^1.7.3"
+        "node-fetch": "^2.6.0"
     },
     "devDependencies": {
         "uglify-js": "^3.9.1",
