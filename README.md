@@ -24,6 +24,9 @@ npm i -S image-to-base64
 Code Example:
 ```js
 const imageToBase64 = require('image-to-base64');
+//or
+//import imageToBase64 from 'image-to-base64/browser';
+
 imageToBase64("path/to/file.jpg") // Path to the image
     .then(
         (response) => {
